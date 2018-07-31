@@ -1,10 +1,9 @@
-import React, {Component} from 'react';
-import { inject } from 'mobx-react'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { inject } from 'mobx-react';
 
 class ErrorBoundary extends Component {
-
-  componentDidCatch(error, info) {
-    debugger;
+  componentDidCatch(error) {
     this.props.setError(error);
   }
 
@@ -13,8 +12,10 @@ class ErrorBoundary extends Component {
   }
 }
 
-export default inject(((store) => {
-  return {
-    error: store.quotationStore.setError
-  }
-}))(ErrorBoundary);
+ErrorBoundary.propTypes = {
+  children: PropTypes.node,
+};
+
+export default inject(store => (
+  { error: store.quotationStore.setError }
+))(ErrorBoundary);

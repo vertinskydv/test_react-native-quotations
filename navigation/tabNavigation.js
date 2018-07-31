@@ -1,8 +1,8 @@
 import React from 'react';
-import AboutScreen from '../screens/about';
-import QuotationScreen from '../containers/quotation';
 import { createBottomTabNavigator } from 'react-navigation';
 import { Ionicons } from '@expo/vector-icons';
+import AboutScreen from '../screens/about';
+import QuotationScreen from '../containers/quotation';
 
 export default createBottomTabNavigator(
   {
@@ -19,7 +19,7 @@ export default createBottomTabNavigator(
           iconName = `ios-information-circle${focused ? '' : '-outline'}`;
         }
         return <Ionicons name={iconName} size={25} color={tintColor} />;
-      }
-    })
-  }
+      },
+    }),
+  },
 );

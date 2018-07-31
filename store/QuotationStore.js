@@ -1,10 +1,8 @@
 import {
-  autorun,
   configure,
   action,
   observable,
   decorate,
-  computed,
   runInAction
 } from 'mobx';
 import { debounce } from 'underscore';
@@ -64,5 +62,6 @@ decorate(QuotationsStore, {
   error: observable,
   fetchQuotations: action,
   setError: action,
-  clearError: action
-})
+  clearError: action,
+});
+

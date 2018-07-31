@@ -3,8 +3,6 @@ import {
   action,
   observable,
   decorate,
-  computed,
-  runInAction
 } from 'mobx';
 
 configure({enforceActions: true});
@@ -23,6 +21,6 @@ export default class NavigationStore {
 
 decorate(NavigationStore, {
   activeNavigationScreenName: observable,
-  setActiveNavigationScreenName: action
+  setActiveNavigationScreenName: action,
 })
 

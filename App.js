@@ -1,28 +1,20 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import TabNavigation from './navigation/tabNavigation';
 import { Provider } from 'mobx-react';
-import { NavigationEvents } from 'react-navigation';
-import RootStore from './store/RootStore';
-
+import { View } from 'react-native';
+import TabNavigation from './navigation/tabNavigation';
+import RootStore from './store/rootStore';
 
 const rootStore = new RootStore();
 
-
 class App extends React.Component {
-
-  // componentDidMount() {
-  //   const routes = this.navigator.state.nav.routes;
-  //   const index = this.navigator.state.nav.index;
-
-  //   rootStore.navigationStore.setActiveNavigationScreenName(routes[index].key);
-  // }
   render() {
     return (
       <Provider {...rootStore}>
-        <View style={{flex: 1}}>
+        <View style={{ flex: 1 }}>
           <TabNavigation
-            onNavigationStateChange={(oldState, {routes, index}) => {rootStore.navigationStore.setActiveNavigationScreenName(routes[index].key)}}
+            onNavigationStateChange={(oldState, { routes, index }) => {
+              rootStore.navigationStore.setActiveNavigationScreenName(routes[index].key);
+            }}
             ref={nav => { this.navigator = nav; }}
           />
         </View>
